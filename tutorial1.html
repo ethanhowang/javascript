@@ -1,6 +1,6 @@
 <html>
   <body>
-    <h1 id="header">What is your age?</h1>
+    <h1 id="header">Type Something</h1>
     <input type="text" id="inp" />
     <button onclick="pressed()">Enter</button>
     <button onclick="red()">Red</button>
@@ -8,26 +8,50 @@
     <p id="output"></p>
 
     <script>
-      function red() {
-        document.getElementById("header").style.color = "red";
+      //ep 10
+      var ethan = ["hello", 5, 4.6, "ethan"];
+      ethan.pop(); // remove last element from array and returns it
+      ethan.push("new"); //add element to the end of the array
+      ethan.shift(); // remove the first element from the array
+      ethan.sort(); // sorts the array, numbers come first then strings alphabetically
+      ethan[7] = 8; // if the index set is greater than the length, then it will fill elements in between
+      // with empty elements
+      var arr = new Array(50); // creates an array of size 50
+      console.log(ethan[0]);
+      //stopped after ep 8
+      console.log(ethan);
+      var _set = new Set();
+      _set.add(1).add(3).add(4);
+      console.log(_set.has(1)); //checks whether an element exists in the Set, runs in O(1) time, good data structure
+      console.log(_set.size);
+      function test(x) {
+        console.log(x);
       }
+      _set.forEach(test); // use a set and apply a function to every element in the set
+      var mp = new Map([
+        ["t", 5],
+        ["v", 8],
+      ]);
+      mp.set("r", 10);
+      console.log(mp.get("t"));
+      console.log(mp.has("r"));
+      console.log(mp.entries());
 
-      function green() {
-        document.getElementById("header").style.color = "green";
+      for (var entry of mp) {
+        console.log(entry);
+        console.log(entry[0]);
+        console.log(entry[1]);
       }
-      function pressed() {
-        var text = parseInt(document.getElementById("inp").value);
-        var output = document.getElementById("output");
-
-        if (text > 18) {
-          output.innerHTML = "You are older than 18!";
-        } else if (text == 18) {
-          output.innerHTML = "You are 18!";
+      var mp = new Map();
+      str = "this is my new string hello";
+      for (var letter of str) {
+        if (mp.has(letter)) {
+          mp.set(letter, mp.get(letter) + 1);
         } else {
-          output.innerHTML = "You are NOT older than 18!";
+          mp.set(letter, 1);
         }
       }
-      //stopped after ep 8
+      console.log(mp.entries());
     </script>
   </body>
 </html>
